@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<f:view renderKitId="PRIMEFACES_MOBILE" />
+
+<h:head>
+</h:head>
+
+<h:body>
+	<pm:page id="escolhaJogadores">
+		<pm:header title="Conferência dos Sorteios"></pm:header>
+
+		<pm:content>
+			<h:form>
+				<p:growl id="msgs" showDetail="true" />
+
+				<h2 class="first">Lista de Sorteios</h2>
+				
+				<ui:repeat var="jogo" value="#{sorteioMB.listaDeSorteios}">
+					<p:commandButton action="#{sorteioMB.escolherJogo(jogo.id)}" value="#{jogo.label}" update="sorteio"></p:commandButton>
+				</ui:repeat>
+				
+			</h:form>
+		</pm:content>
+	</pm:page>
+
+	<pm:page id="sorteio" >
+		<pm:header title="Sorteio dos Jogadores"></pm:header>
+
+		<pm:content>
+			<p><h:outputText value="#{sorteioMB.jogoEscolhido.data}" /></p>
+			<p:dataTable var="time" value="#{sorteioMB.jogoEscolhido.times}">
+				<p:column headerText="Time">
+					<h:outputText value="#{time.nome}"></h:outputText>
+				</p:column>
+				<p:column headerText="Jogadores">
+					<ui:repeat var="jogador" value="#{time.listaDeJogadores}">
+						<div><h:outputText value="#{jogador}" /></div>
+					</ui:repeat>
+				</p:column>
+			</p:dataTable>
+		</pm:content>
+	</pm:page>
+</h:body>
+</html>
