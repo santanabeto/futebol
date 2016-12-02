@@ -5,9 +5,9 @@ insert into jogador values (nextval('seq_jogador'),'José Luiz', 3);
 insert into jogador values (nextval('seq_jogador'),'Elson', 3);
 insert into jogador values (nextval('seq_jogador'),'Vinícius', 3);
 insert into jogador values (nextval('seq_jogador'),'Thiago Missé', 3);
+insert into jogador values (nextval('seq_jogador'),'Ramon', 3);
 
 insert into jogador values (nextval('seq_jogador'),'José Carlos (Júnior)', 2);
-insert into jogador values (nextval('seq_jogador'),'André', 2);
 insert into jogador values (nextval('seq_jogador'),'Fernando (Esmeralda)', 2);
 insert into jogador values (nextval('seq_jogador'),'Isaak', 2);
 insert into jogador values (nextval('seq_jogador'),'Jeferson', 2);
